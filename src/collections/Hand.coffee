@@ -5,7 +5,7 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
-    if @minScore() > 21 then @bust()
+    if @maxScore() > 21 then @bust()
 
   bust: ->
     @trigger 'bust'
@@ -14,7 +14,9 @@ class window.Hand extends Backbone.Collection
     @trigger 'stand'
 
   dealerDraw: ->
-    
+    @first().flip()
+    while @maxScore() < 17 
+      @hit()
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
@@ -23,6 +25,10 @@ class window.Hand extends Backbone.Collection
   minScore: -> @reduce (score, card) ->
     score + if card.get 'revealed' then card.get 'value' else 0
   , 0
+
+  maxScore: -> 
+    if @scores()[1] <= 21 then @scores()[1]
+    else @scores()[0]
 
   scores: ->
     # The scores are an array of potential scores.
