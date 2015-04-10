@@ -3,6 +3,8 @@
 class window.App extends Backbone.Model
   initialize: ->
     @newGameSetup()
+    @set 'bank', new Bank(balance: 1000, betAmount: 100)
+    @set 'bankView', new BankView(model: @get 'bank')
 
   newGame: ->
     @newGameSetup()
