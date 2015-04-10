@@ -21,8 +21,8 @@ class window.App extends Backbone.Model
 
     @get('playerHand').on 'stand', => 
       @get('dealerHand').dealerDraw()
-      playerScore = @get('playerHand').minScore()
-      dealerScore = @get('dealerHand').minScore()
+      playerScore = @get('playerHand').maxScore()
+      dealerScore = @get('dealerHand').maxScore()
       if dealerScore < playerScore && dealerScore <= 21
         @trigger 'playerWins'
       if dealerScore > playerScore && dealerScore <= 21
