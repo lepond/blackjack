@@ -2,7 +2,7 @@ class window.BankView extends Backbone.View
   el: $('.bank-container')
 
   className: 'bank'
-  template: _.template '<h2>Bank</h2><div>Balance: <%= balance %></div><div>Bet: <%= betAmount %></div><div class="increase-bet">+10</div><div class="decrease-bet">-10</div>'
+  template: _.template '<div>Balance: <%= balance %></div><div>Bet: <%= betAmount %></div><button class="increase-bet btn btn-success">+10</button><button class="decrease-bet btn btn-danger">-10</button>'
 
   initialize: ->
     @render()
@@ -13,10 +13,6 @@ class window.BankView extends Backbone.View
   render: ->
     @$el.children().detach()
     @$el.html @template @model.attributes
-    @$el.css({
-      'height': '400px',
-      'width': '400px'
-    })
 
   events: {
     'click .increase-bet': ->

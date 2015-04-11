@@ -1,3 +1,18 @@
+body {
+  background: url('../img/blackjack.jpg');
+  background-size: cover;
+}
+
+h1 {
+  color: #7D0B09;
+  font-family: 'Sail', cursive;  
+  font-size: 110px;
+  text-align: center;
+}
+h2 {
+  font-size: 40px;
+  text-align: center;
+}
 .card {
   float: left;
   border: solid 1px black;
@@ -16,5 +31,60 @@
 }
 
 .bank-container {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.container {
+  background: rgba(204,242,205,.9);
+  border-radius: 40px;
+  margin-top: 80px;
+  padding: 50px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.player-hand-container {
+  width: 45%;
+  float: left;
+}
+
+.dealer-hand-container {
+  width: 45%;
   float: right;
+}
+
+.increase-bet, .decrease-bet {
+  display: inline;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.game-result-win {
+  text-align: center;
+  font-size: 20px;
+  background: #C1F3C6;
+  color: #277115;
+  display: inline-block;
+  padding: 4px 20px;
+  border: 1px solid #277115;
+  border-radius: 4px;
+}
+
+.game-result-lose {
+  text-align: center;
+  font-size: 20px;
+  background: #FFCDE1;
+  color: #810401;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 4px 20px;
+  border: 1px solid #810401;
+  border-radius: 4px;
 }

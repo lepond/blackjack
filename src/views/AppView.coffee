@@ -1,10 +1,17 @@
 class window.AppView extends Backbone.View
-  template: _.template '
+  template: _.template "
     <h1>Black Jack</h1>
-    <button class="hit-button">Hit</button> <button class="stand-button">Stand</button> <button class="new-game-button">New Game</button>
-    <div class="player-hand-container"></div>
-    <div class="dealer-hand-container"></div>
-  '
+    <center>
+    <div class='buttons'>
+    <button class='hit-button btn btn-primary'>Hit</button> 
+    <button class='stand-button btn btn-warning'>Stand</button> 
+    <button class='new-game-button btn btn-info'>New Game</button>
+    </div>
+    </center>
+    <hr>
+    <div class='player-hand-container'></div>
+    <div class='dealer-hand-container'></div>
+  "
 
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
@@ -14,9 +21,9 @@ class window.AppView extends Backbone.View
   initialize: ->
     @render()
     @model.on 'playerLoses', => 
-      @$el.prepend '<div>You lost.</div>'
+      @$el.prepend '<center><div class="game-result-lose">You lost.</div></center>'
     @model.on 'playerWins', => 
-      @$el.prepend '<div>You win!</div>'
+      @$el.prepend '<center><div class="game-result-win">You win!</div></center>'
     @model.on 'newGame', => 
       @render()
 
