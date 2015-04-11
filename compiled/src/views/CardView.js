@@ -19,13 +19,14 @@
     };
 
     CardView.prototype.render = function() {
-      var bgUrl;
+      var bgUrl, suitLower;
       this.$el.children().detach();
       this.$el.html(this.template(this.model.attributes));
       if (!this.model.get('revealed')) {
         this.$el.addClass('covered');
       }
-      bgUrl = "url('img/cards/" + (this.model.get('rankName')) + "-" + (this.model.get('suitName')) + ".png')";
+      suitLower = this.model.get('suitName').toLowerCase();
+      bgUrl = "url('img/cards/" + (this.model.get('rankName')) + "-" + suitLower + ".png')";
       this.$el.css({
         'background': bgUrl,
         'background-size': '100px, 140px'
