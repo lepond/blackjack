@@ -17,18 +17,23 @@ class window.App extends Backbone.Model
 
     @get('playerHand').on 'bust', => 
       @trigger 'playerLoses'
+      @get('bank').trigger 'loseBet'
 
     @get('dealerHand').on 'bust', => 
       @trigger 'playerWins'
+      @get('bank').trigger 'winBet'
 
     @get('playerHand').on 'stand', => 
       @get('dealerHand').dealerDraw()
       playerScore = @get('playerHand').maxScore()
       dealerScore = @get('dealerHand').maxScore()
+
       if dealerScore < playerScore && dealerScore <= 21
         @trigger 'playerWins'
+        @get('bank').trigger 'winBet'
       if dealerScore > playerScore && dealerScore <= 21
         @trigger 'playerLoses'
+        @get('bank').trigger 'loseBet'
       if dealerScore == playerScore 
         @trigger 'tieGame'
     
