@@ -1,0 +1,26 @@
+{
+  "name": "2015-03-blackjack-michael-lindsay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lepond/2015-03-blackjack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lepond/2015-03-blackjack/issues"
+  },
+  "engines": {
+    "node": "0.12.0"
+  },
+  "homepage": "https://github.com/lepond/2015-03-blackjack",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
