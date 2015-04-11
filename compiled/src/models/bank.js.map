@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Bank.js",
+  "sourceRoot": "../../..",
+  "sources": [
+    "src/models/Bank.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,MAAA;iCAAA;;AAAA,EAAM,MAAM,CAAC;AAAb,2BAAA,CAAA;;;;KAAA;;gBAAA;;KAA0B,QAAQ,CAAC,MAAnC,CAAA;AAAA"
+}
