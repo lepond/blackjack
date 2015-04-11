@@ -2,7 +2,7 @@ class window.BankView extends Backbone.View
   el: $('.bank-container')
 
   className: 'bank'
-  template: _.template '<div>Balance: <%= balance %></div><div>Bet: <%= betAmount %></div><button class="increase-bet btn btn-success">+10</button><button class="decrease-bet btn btn-danger">-10</button>'
+  template: _.template '<div>Balance: <%= balance %></div><div>Bet: <%= betAmount %></div><button class="increase-bet btn btn-success">+10</button> <button class="decrease-bet btn btn-danger">-10</button>'
 
   initialize: ->
     @render()

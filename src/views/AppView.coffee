@@ -21,9 +21,17 @@ class window.AppView extends Backbone.View
   initialize: ->
     @render()
     @model.on 'playerLoses', => 
-      @$el.prepend '<center><div class="game-result-lose">You lost.</div></center>'
+      @$el.prepend('<center><div class="game-result-lose alert alert-danger">You lost.</div></center>')
+      $('.game-result-lose').hide().fadeIn().delay(1000).fadeOut()
+      setTimeout(@model.newGame.bind(@model), 1800)
     @model.on 'playerWins', => 
-      @$el.prepend '<center><div class="game-result-win">You win!</div></center>'
+      @$el.prepend '<center><div class="game-result-win alert alert-success">You win!</div></center>'
+      $('.game-result-win').hide().fadeIn().delay(1000).fadeOut()
+      setTimeout(@model.newGame.bind(@model), 1800)
+    @model.on 'tieGame', => 
+      @$el.prepend '<center><div class="game-result-tie alert alert-warning">You tied!</div></center>'
+      $('.game-result-tie').hide().fadeIn().delay(1000).fadeOut()
+      setTimeout(@model.newGame.bind(@model), 1800)
     @model.on 'newGame', => 
       @render()
 
