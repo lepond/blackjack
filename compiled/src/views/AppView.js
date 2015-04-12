@@ -47,11 +47,14 @@
           return setTimeout(_this.model.newGame.bind(_this.model), 1800);
         };
       })(this));
-      return this.model.on('newGame', (function(_this) {
+      this.model.on('newGame', (function(_this) {
         return function() {
           return _this.render();
         };
       })(this));
+      if (this.model.get('playerHand').maxScore() === 21) {
+        return this.model.get('playerHand').stand();
+      }
     };
 
     AppView.prototype.render = function() {

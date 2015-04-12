@@ -17,7 +17,10 @@
     HandView.prototype.initialize = function() {
       this.collection.on('add remove change', (function(_this) {
         return function() {
-          return _this.render();
+          _this.render();
+          if (_this.collection.maxScore() === 21) {
+            return _this.collection.stand();
+          }
         };
       })(this));
       return this.render();

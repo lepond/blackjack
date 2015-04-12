@@ -9,12 +9,13 @@ class window.App extends Backbone.Model
   newGame: ->
     @newGameSetup()
     @trigger 'newGame'
+    if @get('playerHand').maxScore() == 21
+      @get('playerHand').stand()
 
   newGameSetup: ->
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
-
     @get('playerHand').on 'bust', => 
       @trigger 'playerLoses'
       @get('bank').trigger 'loseBet'

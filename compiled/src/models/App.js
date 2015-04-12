@@ -23,7 +23,10 @@
 
     App.prototype.newGame = function() {
       this.newGameSetup();
-      return this.trigger('newGame');
+      this.trigger('newGame');
+      if (this.get('playerHand').maxScore() === 21) {
+        return this.get('playerHand').stand();
+      }
     };
 
     App.prototype.newGameSetup = function() {

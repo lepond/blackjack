@@ -34,6 +34,8 @@ class window.AppView extends Backbone.View
       setTimeout(@model.newGame.bind(@model), 1800)
     @model.on 'newGame', => 
       @render()
+    if @model.get('playerHand').maxScore() == 21 
+      @model.get('playerHand').stand()
 
   render: ->
     @$el.children().detach()
